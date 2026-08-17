@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Mentions légales — EnR Collectives</title>
+<meta name="description" content="Mentions légales du site EnR Collectives, un service de Solyance Développement (Groupe Solyance).">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f8a63'/%3E%3Ctext x='16' y='22' font-family='serif' font-weight='700' font-size='16' fill='white' text-anchor='middle'%3EEnR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#14291f;--ink2:#1f3d2e;--grey:#596e62;--grey-lt:#8a9c91;
+  --line:#dbe8e0;--bg:#f5faf7;--bg2:#edf4ef;--card:#fff;
+  --green:#0f8a63;--green-d:#0a6b4d;--green-lt:#15b07e;
+  --sun:#e8952e;--sun-lt:#f2a63b;
+  --sans:'Inter',-apple-system,sans-serif;--serif:'Playfair Display',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.7}
+a{text-decoration:none;color:inherit}
+
+.wrap{max-width:1400px;margin:0 auto;padding:0 clamp(28px,4vw,64px)}
+
+/* Header */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(245,250,247,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo-wrap{display:flex;flex-direction:column;gap:1px}
+.logo{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.logo b{color:var(--sun)}
+.logo-tag{font-size:.68rem;color:var(--grey-lt);font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+.hdr-cta{background:var(--green);color:#fff;padding:10px 24px;border-radius:50px;font-size:.85rem;font-weight:600;transition:all .25s}
+.hdr-cta:hover{background:var(--green-d)}
+
+/* Groupe dropdown */
+.nav-groupe{position:relative;margin-left:auto;margin-right:16px}
+.nav-groupe-btn{background:none;border:none;cursor:pointer;font-family:inherit;font-size:.85rem;font-weight:500;color:var(--grey);transition:color .2s;display:flex;align-items:center;gap:5px;padding:0}
+.nav-groupe-btn:hover{color:var(--ink)}
+.nav-groupe-btn .dd-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .2s}
+.nav-groupe:hover .dd-arrow{transform:rotate(180deg)}
+.nav-groupe-dd{position:absolute;top:calc(100% + 14px);right:0;background:rgba(7,22,40,.98);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:6px 0;min-width:240px;opacity:0;visibility:hidden;transform:translateY(-5px);transition:all .18s;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,.4);backdrop-filter:blur(16px)}
+.nav-groupe:hover .nav-groupe-dd{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-groupe-dd a{display:block;padding:9px 16px;font-size:13px;font-weight:500;color:rgba(255,255,255,.6);text-decoration:none;transition:color .15s,background .15s}
+.nav-groupe-dd a:hover{color:var(--green-lt);background:rgba(15,138,99,.1)}
+.nav-groupe-dd a:first-child{font-weight:700;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px;padding-bottom:12px}
+
+/* Content */
+.legal{padding:120px 0 80px}
+.legal h1{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.4rem);margin-bottom:40px;color:var(--ink)}
+.legal h2{font-family:var(--serif);font-size:1.2rem;margin:32px 0 12px;color:var(--ink)}
+.legal p,.legal li{font-size:.92rem;color:var(--grey);line-height:1.7;margin-bottom:12px}
+.legal ul{padding-left:20px}
+
+/* Footer */
+.ftr{border-top:1px solid var(--line);padding:36px 0 48px;margin-top:40px}
+.ftr-in{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+.ftr-txt{max-width:540px;font-size:.88rem;color:var(--grey);line-height:1.65}
+.ftr-txt strong{color:var(--ink)}
+.ftr-by{margin-top:16px;font-size:.75rem;color:var(--grey-lt)}
+.ftr-groupe{min-width:200px}
+.ftr-groupe strong{font-size:.85rem;color:var(--ink);display:block;margin-bottom:10px}
+.ftr-groupe ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ftr-groupe li a{font-size:.82rem;color:var(--grey);transition:color .2s}
+.ftr-groupe li a:hover{color:var(--green)}
+.ftr-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--grey-lt)}
+.ftr-bottom a{color:var(--grey-lt);transition:color .2s}
+.ftr-bottom a:hover{color:var(--green)}
+
+/* Hamburger */
+.hdr-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s;flex-shrink:0;cursor:pointer;border:none;background:none}
+.hdr-burger:hover{background:rgba(15,138,99,.07)}
+.hdr-burger span,.hdr-burger span::before,.hdr-burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s;position:relative}
+.hdr-burger span::before,.hdr-burger span::after{content:'';position:absolute;left:0;width:20px}
+.hdr-burger span::before{top:-6px}.hdr-burger span::after{top:6px}
+.hdr-burger.open span{background:transparent}
+.hdr-burger.open span::before{top:0;transform:rotate(45deg)}
+.hdr-burger.open span::after{top:0;transform:rotate(-45deg)}
+.mob-menu{position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(245,250,247,.98);backdrop-filter:blur(20px);z-index:99;display:flex;flex-direction:column;padding:24px 28px 40px;transform:translateX(100%);transition:transform .35s;overflow-y:auto}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{display:block;padding:14px 0;font-size:1.05rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);transition:color .2s}
+.mob-menu a:hover{color:var(--green)}
+.mob-menu .mob-cta{display:block;margin-top:24px;padding:16px;background:var(--green);color:#fff;border-radius:16px;text-align:center;font-size:1rem;font-weight:700;border-bottom:none}
+.mob-menu .mob-groupe{padding:14px 0;border-bottom:1px solid var(--line)}
+.mob-menu .mob-groupe strong{font-size:.9rem;color:var(--grey-lt);font-weight:600;display:block;margin-bottom:8px}
+.mob-menu .mob-groupe a{padding:8px 0;font-size:.9rem;font-weight:500;color:var(--grey);border-bottom:none}
+
+@media(max-width:768px){
+  .ftr-in{flex-direction:column}
+  .ftr-bottom{flex-direction:column;gap:8px;text-align:center}
+  .nav-groupe{display:none}
+  .hdr-burger{display:flex}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap">
+    <div class="hdr-in">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo"><b>EnR</b> Collectives</div>
+        <div class="logo-tag">Énergie solaire de proximité</div>
+      </a>
+      <div class="nav-groupe">
+        <button class="nav-groupe-btn">Groupe Solyance <span class="dd-arrow"></span></button>
+        <div class="nav-groupe-dd">
+          <a href="https://groupe-solyance.com/">Groupe Solyance</a>
+          <a href="https://solyance-energie.com/">Solyance Énergie</a>
+          <a href="https://solyance-gtb.com/">Solyance GTB</a>
+          <a href="https://solyance-lux.com/">Solyance LUX</a>
+          <a href="https://solyance-powergrid.com/">Solyance PowerGrid</a>
+          <a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a>
+          <a href="index.html">EnR Collectives</a>
+          <a href="https://solyance-developpement.com/">Solyance Développement</a>
+        </div>
+      </div>
+      <a class="hdr-cta" href="index.html">Accueil</a>
+      <button class="hdr-burger" id="burger" onclick="toggleMob()" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Accueil</a>
+  <a href="comment-ca-marche.html">Comment ça marche</a>
+  <a href="index.html#villes">Nos villes</a>
+  <div class="mob-groupe">
+    <strong>Groupe Solyance</strong>
+    <a href="https://groupe-solyance.com/">Groupe Solyance</a>
+    <a href="https://solyance-energie.com/">Solyance Énergie</a>
+    <a href="https://solyance-gtb.com/">Solyance GTB</a>
+    <a href="https://solyance-lux.com/">Solyance LUX</a>
+    <a href="https://solyance-powergrid.com/">Solyance PowerGrid</a>
+    <a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a>
+    <a href="https://solyance-developpement.com/">Solyance Développement</a>
+  </div>
+  <a href="index.html#villes" class="mob-cta">Découvrir les projets</a>
+</div>
+
+<main class="legal">
+  <div class="wrap">
+    <h1>Mentions légales</h1>
+
+    <h2>Éditeur du site</h2>
+    <p>Le site enr-collectives est édité par Solyance Développement, société par actions simplifiée au capital de 1 000 euros, immatriculée au RCS de Tours sous le numéro 932 491 780, dont le siège social est situé au 7 avenue Marcel Dassault, bâtiment D, 37200 Tours.</p>
+    <p>Directeur de la publication : Arthur Bouton, Président.</p>
+    <p>Email : contact@solyance.fr</p>
+
+    <h2>Hébergement</h2>
+    <p>Le site est hébergé par GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (GitHub Pages).</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus (textes, images, graphismes, logo, structure) du site enr-collectives est la propriété exclusive de Solyance Développement ou fait l'objet d'une autorisation d'utilisation. Toute reproduction, représentation, modification, publication ou adaptation, totale ou partielle, est interdite sans autorisation préalable écrite.</p>
+
+    <h2>Protection des données personnelles</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition concernant vos données personnelles.</p>
+    <p>Les données collectées via les formulaires du site (nom, adresse, email, téléphone, type d'acteur) sont utilisées exclusivement pour vous recontacter dans le cadre des projets d'autoconsommation collective et organiser un premier rendez-vous.</p>
+    <p>Pour exercer vos droits, contactez-nous à : contact@solyance.fr</p>
+    <p>Responsable du traitement : Solyance Développement, 7 avenue Marcel Dassault, bâtiment D, 37200 Tours.</p>
+
+    <h2>Cookies</h2>
+    <p>Ce site utilise uniquement des cookies techniques essentiels au bon fonctionnement du site (préférence RGPD). Aucun cookie publicitaire ou de suivi tiers.</p>
+
+    <h2>Limitation de responsabilité</h2>
+    <p>Les informations fournies sur ce site le sont à titre indicatif. Solyance Développement ne saurait garantir l'exactitude, la complétude ou l'actualité des informations diffusées. Les estimations d'économies présentées sont des projections basées sur des données moyennes et des hypothèses de fonctionnement standard. Elles ne constituent en aucun cas une garantie de résultat.</p>
+  </div>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <div class="ftr-txt">
+        <strong>EnR Collectives</strong> structure des projets d'autoconsommation collective solaire pour les particuliers, entreprises et collectivités.
+        <div class="ftr-by">Un service proposé par <a href="https://solyance-developpement.com/" style="color:var(--green);font-weight:600">Solyance Développement</a></div>
+      </div>
+      <div class="ftr-groupe">
+        <strong>Groupe Solyance</strong>
+        <ul>
+          <li><a href="https://groupe-solyance.com/">Groupe Solyance</a></li>
+          <li><a href="https://solyance-energie.com/">Solyance Énergie</a></li>
+          <li><a href="https://solyance-gtb.com/">Solyance GTB</a></li>
+          <li><a href="https://solyance-lux.com/">Solyance LUX</a></li>
+          <li><a href="https://solyance-powergrid.com/">Solyance PowerGrid</a></li>
+          <li><a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a></li>
+          <li><a href="index.html">EnR Collectives</a></li>
+          <li><a href="https://solyance-developpement.com/">Solyance Développement</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>&copy; 2025 EnR Collectives — <a href="https://groupe-solyance.com/">Groupe Solyance</a></span>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMob(){const b=document.getElementById('burger');const m=document.getElementById('mobMenu');b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+</script>
+</body>
+</html>

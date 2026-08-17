@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Autoconsommation collective à Nevers — EnR Collectives</title>
+<meta name="description" content="Vérifiez votre éligibilité au projet d'autoconsommation collective solaire à Nevers. Jusqu'à 15 à 25 % d'économie sur votre facture, aucune installation chez vous.">
+<link rel="canonical" href="https://enr-collectives.fr/nevers.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f8a63'/%3E%3Ctext x='16' y='22' font-family='serif' font-weight='700' font-size='16' fill='white' text-anchor='middle'%3EEnR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#14291f;--ink2:#1f3d2e;--grey:#596e62;--grey-lt:#8a9c91;--grey-xlt:#b5c3bb;
+  --line:#dbe8e0;--bg:#f5faf7;--bg2:#edf4ef;--card:#fff;
+  --green:#0f8a63;--green-d:#0a6b4d;--green-dd:#07503a;--green-lt:#15b07e;
+  --green-glass:rgba(15,138,99,.07);--green-glow:rgba(15,138,99,.12);
+  --sun:#e8952e;--sun-lt:#f2a63b;--sun-glass:rgba(232,149,46,.08);
+  --r:16px;--r-lg:24px;--r-pill:50px;
+  --sh-xs:0 1px 3px rgba(20,41,31,.04);--sh-sm:0 2px 10px rgba(20,41,31,.06);
+  --sh-md:0 8px 32px rgba(20,41,31,.08);--sh-lg:0 16px 56px rgba(20,41,31,.1);
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+
+.hdr{position:sticky;top:0;z-index:100;background:rgba(245,250,247,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.hdr.scrolled{border-bottom-color:var(--line);box-shadow:var(--sh-xs)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo-wrap{display:flex;flex-direction:column;gap:1px}
+.logo{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.logo b{color:var(--sun);font-weight:700}
+.logo-tag{font-size:.68rem;color:var(--grey-lt);font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+.hdr-nav{display:flex;align-items:center;gap:28px}
+.hdr-link{font-size:.88rem;font-weight:500;color:var(--grey);transition:color .2s}
+.hdr-link:hover{color:var(--green)}
+.hdr-cta{background:var(--green);color:#fff;padding:10px 24px;border-radius:var(--r-pill);font-size:.85rem;font-weight:600;transition:all .25s var(--ease);white-space:nowrap}
+.hdr-cta:hover{background:var(--green-d);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+.nav-groupe{position:relative}
+.nav-groupe-btn{font-size:.85rem;font-weight:500;color:var(--grey);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-groupe-btn:hover{color:var(--ink)}
+.dd-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .2s}
+.nav-groupe:hover .dd-arrow{transform:rotate(180deg)}
+.nav-groupe-dd{position:absolute;top:calc(100% + 14px);right:0;background:rgba(7,22,40,.98);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:6px 0;min-width:240px;opacity:0;visibility:hidden;transform:translateY(-5px);transition:all .18s;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,.4);backdrop-filter:blur(16px)}
+.nav-groupe:hover .nav-groupe-dd{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-groupe-dd a{display:block;padding:9px 16px;font-size:13px;font-weight:500;color:rgba(255,255,255,.6);transition:color .15s,background .15s}
+.nav-groupe-dd a:hover{color:var(--green-lt);background:rgba(15,138,99,.1)}
+.nav-groupe-dd a:first-child{font-weight:700;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px;padding-bottom:12px}
+
+/* Hamburger */
+.hdr-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s;flex-shrink:0}
+.hdr-burger:hover{background:var(--green-glass)}
+.hdr-burger span,.hdr-burger span::before,.hdr-burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s var(--ease);position:relative}
+.hdr-burger span::before,.hdr-burger span::after{content:'';position:absolute;left:0;width:20px}
+.hdr-burger span::before{top:-6px}.hdr-burger span::after{top:6px}
+.hdr-burger.open span{background:transparent}
+.hdr-burger.open span::before{top:0;transform:rotate(45deg)}
+.hdr-burger.open span::after{top:0;transform:rotate(-45deg)}
+.mob-menu{position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(245,250,247,.98);backdrop-filter:blur(20px);z-index:99;display:flex;flex-direction:column;padding:24px 28px 40px;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{display:block;padding:14px 0;font-size:1.05rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);transition:color .2s}
+.mob-menu a:hover{color:var(--green)}
+.mob-menu .mob-cta{display:block;margin-top:24px;padding:16px;background:var(--green);color:#fff;border-radius:var(--r);text-align:center;font-size:1rem;font-weight:700;border-bottom:none;transition:background .2s}
+.mob-menu .mob-cta:hover{background:var(--green-d)}
+.mob-menu .mob-groupe{padding:14px 0;border-bottom:1px solid var(--line)}
+.mob-menu .mob-groupe strong{font-size:.9rem;color:var(--grey-lt);font-weight:600;display:block;margin-bottom:8px}
+.mob-menu .mob-groupe a{padding:8px 0;font-size:.9rem;font-weight:500;color:var(--grey);border-bottom:none}
+/* Scroll to top */
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .3s var(--ease);z-index:90;cursor:pointer;border:none}
+.scroll-top.show{opacity:1;visibility:visible;transform:none}
+.scroll-top:hover{background:var(--green-d);transform:translateY(-2px)}
+.scroll-top svg{width:20px;height:20px}
+
+.city-hero{padding:clamp(48px,8vw,80px) 0 clamp(32px,5vw,48px)}
+.city-hero-inner{max-width:720px}
+.breadcrumb{font-size:.82rem;color:var(--grey-lt);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.breadcrumb a{color:var(--green);font-weight:500;transition:color .2s}
+.breadcrumb a:hover{color:var(--green-d)}
+.city-hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--ink);line-height:1.15;letter-spacing:-.03em;margin-bottom:16px}
+.city-hero h1 em{color:var(--green);font-style:normal}
+.city-hero-p{font-size:clamp(.92rem,1.1vw,1.05rem);color:var(--grey);line-height:1.7;margin-bottom:28px;max-width:600px}
+.cta-main{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;padding:15px 32px;border-radius:var(--r-pill);font-size:.95rem;font-weight:700;transition:all .25s var(--ease);box-shadow:0 4px 16px rgba(15,138,99,.18)}
+.cta-main:hover{background:var(--green-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,138,99,.25)}
+.cta-main svg{width:18px;height:18px}
+.data-s{padding:clamp(32px,5vw,48px) 0}
+.data-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.data-card{background:var(--card);border-radius:var(--r);padding:24px 20px;border:1px solid var(--line);text-align:center}
+.data-val{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--green);margin-bottom:4px}
+.data-val span{color:var(--sun)}
+.data-lbl{font-size:.8rem;color:var(--grey);line-height:1.4}
+.city-content{padding:clamp(48px,7vw,72px) 0;background:var(--bg2)}
+.cc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,56px);align-items:start}
+.cc-txt h2{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--ink);margin-bottom:18px;letter-spacing:-.02em}
+.cc-txt p{font-size:.93rem;color:var(--grey);line-height:1.75;margin-bottom:14px}
+.cc-list{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.cc-list-item{display:flex;gap:12px;align-items:flex-start}
+.cc-check{width:24px;height:24px;border-radius:50%;background:var(--green-glass);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.cc-check svg{width:12px;height:12px;color:var(--green)}
+.cc-list-item p{font-size:.9rem;color:var(--grey);line-height:1.6}
+.form-s{padding:clamp(56px,8vw,96px) 0}
+.form-wrap{max-width:620px;margin:0 auto}
+.form-card{background:var(--card);border-radius:var(--r-lg);padding:clamp(28px,5vw,44px);box-shadow:var(--sh-md);border:1px solid var(--line);position:relative;overflow:hidden}
+.form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--sun))}
+.form-h{text-align:center;margin-bottom:28px}
+.form-h h2{font-family:var(--serif);font-size:1.5rem;color:var(--ink);margin-bottom:6px}
+.form-h p{font-size:.9rem;color:var(--grey)}
+.form-steps{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:28px}
+.fs-step{display:flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;color:var(--grey-lt)}
+.fs-step.active{color:var(--green)}.fs-step.done{color:var(--green-d)}
+.fs-num{width:28px;height:28px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;transition:all .3s}
+.fs-step.active .fs-num{border-color:var(--green);background:var(--green);color:#fff}
+.fs-step.done .fs-num{border-color:var(--green-d);background:var(--green-d);color:#fff}
+.fs-line{width:40px;height:2px;background:var(--line);margin:0 12px;transition:background .3s}
+.fs-line.done{background:var(--green)}
+.fg{margin-bottom:18px}.fl{display:block;font-size:.82rem;font-weight:600;color:var(--ink2);margin-bottom:5px}.fl .req{color:var(--sun)}
+.fi{width:100%;padding:12px 16px;border:1.5px solid var(--line);border-radius:var(--r);font-size:.92rem;color:var(--ink);background:var(--bg);transition:border-color .25s,box-shadow .25s;outline:none;font-family:var(--sans)}
+.fi::placeholder{color:var(--grey-xlt)}.fi:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-glass);background:var(--card)}.fi.err{border-color:#d94040;box-shadow:0 0 0 3px rgba(217,64,64,.08)}
+select.fi{cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23596e62' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:40px}
+textarea.fi{resize:vertical;min-height:80px}
+.ferr{font-size:.75rem;color:#d94040;margin-top:3px;display:none}.ferr.show{display:block}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tsel{display:flex;gap:10px}
+.tbtn{flex:1;padding:11px 14px;border-radius:var(--r);border:1.5px solid var(--line);font-size:.88rem;font-weight:600;color:var(--grey);transition:all .25s var(--ease);text-align:center;background:var(--bg)}.tbtn:hover{border-color:var(--green);color:var(--green-d)}.tbtn.sel{border-color:var(--green);background:var(--green-glass);color:var(--green-d)}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--line);background:var(--bg);transition:border-color .25s}
+.consent:has(input:checked){border-color:var(--green);background:var(--green-glass)}
+.consent input[type="checkbox"]{width:18px;height:18px;margin-top:2px;flex-shrink:0;accent-color:var(--green);cursor:pointer}
+.consent label{font-size:.82rem;color:var(--grey);line-height:1.5;cursor:pointer}
+.interest-box{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;border-radius:var(--r);border:1.5px solid var(--line);background:var(--bg);transition:border-color .25s;margin-bottom:8px}
+.interest-box:has(input:checked){border-color:var(--green);background:var(--green-glass)}
+.interest-box input[type="checkbox"]{width:18px;height:18px;margin-top:2px;flex-shrink:0;accent-color:var(--green);cursor:pointer}
+.interest-box label{font-size:.84rem;color:var(--ink2);line-height:1.5;cursor:pointer}
+.interest-box label strong{font-weight:600;color:var(--ink)}
+.fbtn-row{display:flex;gap:12px;margin-top:18px}
+.fsub{flex:1;padding:15px;background:var(--green);color:#fff;border-radius:var(--r);font-size:1rem;font-weight:700;transition:all .25s;box-shadow:0 4px 16px rgba(15,138,99,.18);border:none;font-family:var(--sans);cursor:pointer}.fsub:hover{background:var(--green-d);transform:translateY(-1px);box-shadow:0 6px 22px rgba(15,138,99,.25)}
+.fback{padding:15px 24px;background:var(--bg);color:var(--grey);border-radius:var(--r);font-size:.92rem;font-weight:600;border:1.5px solid var(--line);font-family:var(--sans);cursor:pointer;transition:all .25s}.fback:hover{border-color:var(--green);color:var(--ink)}
+.rgpd-note{font-size:.7rem;color:var(--grey-lt);text-align:center;margin-top:12px;line-height:1.5}
+.f-ok{display:none;text-align:center;padding:40px 20px}.f-ok.show{display:block}
+.f-ok-ic{width:56px;height:56px;border-radius:50%;background:var(--green-glass);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+.f-ok-ic svg{width:28px;height:28px;color:var(--green)}
+.f-ok h3{font-family:var(--serif);font-size:1.3rem;color:var(--ink);margin-bottom:8px}.f-ok p{font-size:.92rem;color:var(--grey)}
+.phase{display:none}.phase.active{display:block}
+.fg-cond{display:none}.fg-cond.show{display:block}
+.interest-sep{font-size:.78rem;font-weight:600;color:var(--grey-lt);text-transform:uppercase;letter-spacing:.05em;margin:18px 0 10px}
+.other{padding:clamp(48px,7vw,72px) 0;background:var(--bg2)}
+.other h2{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--ink);text-align:center;margin-bottom:32px;letter-spacing:-.02em}
+.other-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.other-link{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 14px;text-align:center;transition:all .25s var(--ease)}
+.other-link:hover{transform:translateY(-2px);box-shadow:var(--sh-sm);border-color:var(--green)}
+.other-link strong{display:block;font-size:.9rem;color:var(--ink);margin-bottom:2px}.other-link span{font-size:.72rem;color:var(--grey-lt)}
+.ftr{border-top:1px solid var(--line);padding:36px 0 48px}
+.ftr-in{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+.ftr-txt{max-width:480px;font-size:.88rem;color:var(--grey);line-height:1.65}.ftr-txt strong{color:var(--ink);font-weight:700}
+.ftr-by{margin-top:16px;font-size:.75rem;color:var(--grey-lt)}
+.ftr-links{display:flex;gap:48px}
+.ftr-col strong{font-size:.85rem;color:var(--ink);display:block;margin-bottom:10px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ftr-col li a{font-size:.82rem;color:var(--grey);transition:color .2s}.ftr-col li a:hover{color:var(--green)}
+.ftr-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--grey-lt)}
+.ftr-bottom a{color:var(--grey-lt);transition:color .2s}.ftr-bottom a:hover{color:var(--green)}
+
+@media(max-width:1024px){.data-grid{grid-template-columns:repeat(2,1fr)}.other-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.cc-grid{grid-template-columns:1fr}.hdr-link,.nav-groupe{display:none}.hdr-burger{display:flex}.ftr-in{flex-direction:column;align-items:center;text-align:center}.ftr-links{gap:32px}}
+@media(max-width:600px){.hdr-in{height:56px}.logo{font-size:1.2rem}.logo-tag{font-size:.6rem}.hdr-cta{padding:8px 16px;font-size:.78rem}.data-grid{grid-template-columns:1fr 1fr}.frow{grid-template-columns:1fr}.tsel{flex-direction:column}.other-grid{grid-template-columns:repeat(2,1fr)}.ftr-links{flex-direction:column;gap:24px;align-items:center}.ftr-bottom{flex-direction:column;gap:8px;text-align:center}.fbtn-row{flex-direction:column}.mob-menu{top:56px}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Autoconsommation collective à Nevers","description":"Projet d'autoconsommation collective solaire à Nevers. Jusqu'à 15 à 25 % d'économie sur la facture d'électricité.","provider":{"@type":"Organization","name":"EnR Collectives","url":"https://enr-collectives.fr"},"areaServed":{"@type":"City","name":"Nevers"}}
+</script>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <div class="hdr-in">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo"><b>EnR</b> Collectives</div>
+        <div class="logo-tag">Énergie solaire de proximité</div>
+      </a>
+      <div class="hdr-nav">
+        <a href="comment-ca-marche.html" class="hdr-link">Comment ça marche</a>
+        <a href="index.html#villes" class="hdr-link">Nos villes</a>
+        <div class="nav-groupe">
+          <button class="nav-groupe-btn">Groupe Solyance <span class="dd-arrow"></span></button>
+          <div class="nav-groupe-dd">
+            <a href="https://groupe-solyance.com/">Groupe Solyance</a>
+            <a href="https://solyance-energie.com/">Solyance Énergie</a>
+            <a href="https://solyance-gtb.com/">Solyance GTB</a>
+            <a href="https://solyance-lux.com/">Solyance LUX</a>
+            <a href="https://solyance-powergrid.com/">Solyance PowerGrid</a>
+            <a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a>
+            <a href="index.html">EnR Collectives</a>
+            <a href="https://solyance-developpement.com/">Solyance Développement</a>
+          </div>
+        </div>
+        <a class="hdr-cta" href="#eligibilite">Vérifier mon éligibilité</a>
+        <button class="hdr-burger" id="burger" onclick="toggleMob()" aria-label="Menu"><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Accueil</a>
+  <a href="comment-ca-marche.html">Comment ça marche</a>
+  <a href="index.html#villes">Nos villes</a>
+  <div class="mob-groupe">
+    <strong>Groupe Solyance</strong>
+    <a href="https://groupe-solyance.com/">Groupe Solyance</a>
+    <a href="https://solyance-energie.com/">Solyance Énergie</a>
+    <a href="https://solyance-gtb.com/">Solyance GTB</a>
+    <a href="https://solyance-lux.com/">Solyance LUX</a>
+    <a href="https://solyance-powergrid.com/">Solyance PowerGrid</a>
+    <a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a>
+    <a href="https://solyance-developpement.com/">Solyance Développement</a>
+  </div>
+  <a href="#eligibilite" class="mob-cta" onclick="closeMob()">Vérifier mon éligibilité</a>
+</div>
+
+<section class="city-hero rv">
+  <div class="wrap">
+    <div class="city-hero-inner">
+      <div class="breadcrumb"><a href="index.html">EnR Collectives</a> <span>›</span> <a href="index.html#villes">Nos villes</a> <span>›</span> Nevers</div>
+      <h1>Autoconsommation collective solaire à <em>Nevers</em></h1>
+      <p class="city-hero-p">Préfecture de la Nièvre, Nevers s'engage dans la transition énergétique avec un potentiel solaire favorable et des opportunités de partage d'énergie entre sites de production et consommateurs locaux.</p>
+      <a class="cta-main" href="#eligibilite">Vérifier mon éligibilité <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="data-s"><div class="wrap"><div class="data-grid rv">
+  <div class="data-card"><div class="data-val">1 210</div><div class="data-lbl">kWh/kWc/an d'ensoleillement</div></div>
+  <div class="data-card"><div class="data-val"><span>15 à 25</span> %</div><div class="data-lbl">d'économie estimée sur la facture</div></div>
+  <div class="data-card"><div class="data-val">2 km</div><div class="data-lbl">rayon maximal de la boucle</div></div>
+  <div class="data-card"><div class="data-val">0 €</div><div class="data-lbl">d'installation chez vous</div></div>
+</div></div></section>
+
+<section class="city-content"><div class="wrap"><div class="cc-grid">
+  <div class="cc-txt rv">
+    <h2>Le projet à Nevers</h2>
+    <p>EnR Collectives développe un projet d'autoconsommation collective solaire dans l'agglomération de Nevers. L'objectif : installer des panneaux photovoltaïques sur des toitures ou des espaces adaptés, et partager l'électricité produite entre les participants situés dans un rayon de 2 km.</p>
+    <p>Particuliers, entreprises, commerces, collectivités et copropriétés de Nevers et ses environs peuvent vérifier leur éligibilité. La seule condition : être raccordé au réseau basse tension Enedis dans le périmètre de la boucle.</p>
+  </div>
+  <div class="rv">
+    <h2 style="font-family:var(--serif);font-size:clamp(1.1rem,2vw,1.4rem);color:var(--ink);margin-bottom:18px;letter-spacing:-.02em">Ce que vous gagnez</h2>
+    <div class="cc-list">
+      <div class="cc-list-item"><div class="cc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong style="color:var(--ink)">15 à 25 % d'économie</strong> sur votre facture d'électricité annuelle</p></div>
+      <div class="cc-list-item"><div class="cc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong style="color:var(--ink)">Énergie exonérée d'accise</strong> — l'autoconsommation collective bénéficie d'une exonération fiscale</p></div>
+      <div class="cc-list-item"><div class="cc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong style="color:var(--ink)">Aucune intervention chez vous</strong> — la production est installée sur un site dédié à proximité</p></div>
+      <div class="cc-list-item"><div class="cc-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><p><strong style="color:var(--ink)">Tarif connu à l'avance</strong> — les conditions tarifaires sont définies avant votre engagement</p></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="form-s" id="eligibilite"><div class="wrap"><div class="form-wrap rv"><div class="form-card">
+  <div id="fc">
+    <div class="form-h"><h2>Vérifiez votre éligibilité à Nevers</h2><p>Quelques informations suffisent. Nous analysons votre situation et vous recontactons.</p></div>
+    <div class="form-steps">
+      <div class="fs-step active" id="fs1"><div class="fs-num">1</div> Vos coordonnées</div>
+      <div class="fs-line" id="fsl"></div>
+      <div class="fs-step" id="fs2"><div class="fs-num">2</div> Votre projet</div>
+    </div>
+    <form id="dform" novalidate>
+      <div class="phase active" id="phase1">
+        <div class="frow">
+          <div class="fg"><label class="fl" for="nom">Votre nom <span class="req">*</span></label><input class="fi" type="text" id="nom" name="nom" placeholder="Prénom Nom" required><div class="ferr" id="nom-e">Merci de renseigner votre nom.</div></div>
+          <div class="fg"><label class="fl" for="email">Email <span class="req">*</span></label><input class="fi" type="email" id="email" name="email" placeholder="vous@exemple.fr" required><div class="ferr" id="email-e">Merci de renseigner un email valide.</div></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label class="fl" for="tel">Téléphone <span class="req">*</span></label><input class="fi" type="tel" id="tel" name="tel" placeholder="06 ..." required><div class="ferr" id="tel-e">Merci de renseigner votre téléphone.</div></div>
+          <div class="fg"><label class="fl" for="adresse">Adresse <span class="req">*</span></label><input class="fi" type="text" id="adresse" name="adresse" placeholder="Rue, code postal, ville" required><div class="ferr" id="adresse-e">L'adresse nous permet de vérifier votre éligibilité.</div></div>
+        </div>
+        <div class="fg">
+          <label class="fl">Vous êtes <span class="req">*</span></label>
+          <div class="tsel" id="tsel">
+            <button type="button" class="tbtn sel" data-v="Particulier" onclick="pickT(this)">Particulier</button>
+            <button type="button" class="tbtn" data-v="Entreprise" onclick="pickT(this)">Entreprise</button>
+            <button type="button" class="tbtn" data-v="Collectivité" onclick="pickT(this)">Collectivité</button>
+          </div>
+          <input type="hidden" id="type-v" name="type_acteur" value="Particulier">
+        </div>
+        <div class="fg fg-cond" id="fg-ent">
+          <label class="fl" for="entreprise">Nom de la structure <span class="req">*</span></label>
+          <input class="fi" type="text" id="entreprise" name="entreprise" placeholder="Raison sociale">
+          <div class="ferr" id="ent-e">Merci de renseigner le nom de votre structure.</div>
+        </div>
+        <input type="hidden" name="ville" value="Nevers">
+        <button type="button" class="fsub" onclick="goPhase2()">Étape suivante</button>
+      </div>
+      <div class="phase" id="phase2">
+        <div class="frow">
+          <div class="fg"><label class="fl" for="conso">Facture annuelle estimée</label><select class="fi" id="conso" name="conso"><option value="">Sélectionnez...</option><option value="< 1 500 €">Moins de 1 500 €/an</option><option value="1 500 – 3 000 €">1 500 à 3 000 €/an</option><option value="3 000 – 6 000 €">3 000 à 6 000 €/an</option><option value="6 000 – 15 000 €">6 000 à 15 000 €/an</option><option value="> 15 000 €">Plus de 15 000 €/an</option><option value="Je ne sais pas">Je ne sais pas</option></select></div>
+          <div class="fg"><label class="fl" for="kwh">Consommation annuelle en kWh (optionnel)</label><input class="fi" type="text" id="kwh" name="kwh" placeholder="ex : 8 500 kWh/an"></div>
+        </div>
+        <div class="frow">
+          <div class="fg"><label class="fl" for="logement">Type de logement ou local</label><select class="fi" id="logement" name="logement"><option value="">Sélectionnez...</option><option value="Appartement">Appartement</option><option value="Maison">Maison</option><option value="Local commercial">Local commercial</option><option value="Bureaux">Bureaux</option><option value="Bâtiment public">Bâtiment public</option><option value="Autre">Autre</option></select></div>
+          <div class="fg"><label class="fl" for="surface">Surface approximative (m², optionnel)</label><input class="fi" type="text" id="surface" name="surface" placeholder="ex : 80 m²"></div>
+        </div>
+        <div class="fg"><label class="fl" for="msg">Commentaire (optionnel)</label><textarea class="fi" id="msg" name="message" placeholder="Précisions sur votre situation..." rows="3"></textarea></div>
+        <div class="interest-sep">Je souhaite</div>
+        <div class="interest-box"><input type="checkbox" id="int-acc" name="interet_acc" checked><label for="int-acc"><strong>Vérifier mon éligibilité</strong> à l'autoconsommation collective solaire</label></div>
+        <div class="interest-box"><input type="checkbox" id="int-prod" name="interet_production"><label for="int-prod"><strong>Recevoir une étude</strong> pour produire ma propre électricité solaire (installation en toiture)</label></div>
+        <div class="consent" style="margin-top:18px"><input type="checkbox" id="consent" name="consent" required><label for="consent">J'accepte d'être contacté(e) par EnR Collectives pour vérifier mon éligibilité. Mes données sont utilisées exclusivement à cette fin.</label></div>
+        <div class="ferr" id="consent-e" style="margin-left:28px">Merci d'accepter les conditions.</div>
+        <div class="fbtn-row"><button type="button" class="fback" onclick="goPhase1()">Retour</button><button type="submit" class="fsub">Vérifier mon éligibilité</button></div>
+        <p class="rgpd-note">Vos données sont traitées conformément au RGPD et utilisées exclusivement pour analyser votre éligibilité.</p>
+      </div>
+    </form>
+  </div>
+  <div class="f-ok" id="fok">
+    <div class="f-ok-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h3>Demande envoyée !</h3>
+    <p>Nous analysons votre éligibilité au projet de Nevers. Un conseiller vous recontacte rapidement.</p>
+  </div>
+</div></div></div></section>
+
+<section class="other"><div class="wrap">
+  <h2>Découvrir d'autres villes</h2>
+  <div class="other-grid">
+    <a href="dijon.html" class="other-link"><strong>Dijon</strong><span>Côte-d'Or (21)</span></a>
+    <a href="chalon-sur-saone.html" class="other-link"><strong>Chalon-sur-Saône</strong><span>Saône-et-Loire (71)</span></a>
+    <a href="macon.html" class="other-link"><strong>Mâcon</strong><span>Saône-et-Loire (71)</span></a>
+    <a href="bourg-en-bresse.html" class="other-link"><strong>Bourg-en-Bresse</strong><span>Ain (01)</span></a>
+    <a href="villefranche-sur-saone.html" class="other-link"><strong>Villefranche-sur-Saône</strong><span>Rhône (69)</span></a>
+    <a href="auxerre.html" class="other-link"><strong>Auxerre</strong><span>Yonne (89)</span></a>
+    <a href="roanne.html" class="other-link"><strong>Roanne</strong><span>Loire (42)</span></a>
+    <a href="vichy.html" class="other-link"><strong>Vichy</strong><span>Allier (03)</span></a>
+    <a href="moulins.html" class="other-link"><strong>Moulins</strong><span>Allier (03)</span></a>
+    <a href="montceau-les-mines.html" class="other-link"><strong>Montceau-les-Mines</strong><span>Saône-et-Loire (71)</span></a>
+  </div>
+</div></section>
+
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-in">
+    <div class="ftr-txt"><strong>EnR Collectives</strong> structure des projets d'autoconsommation collective solaire pour les particuliers, entreprises et collectivités de Bourgogne-Franche-Comté et Auvergne-Rhône-Alpes.<div class="ftr-by">Un service proposé par <a href="https://solyance-developpement.com/" style="color:var(--green);font-weight:600">Solyance Développement</a></div></div>
+    <div class="ftr-links">
+      <div class="ftr-col"><strong>Site</strong><ul><li><a href="comment-ca-marche.html">Comment ça marche</a></li><li><a href="index.html#villes">Nos villes</a></li><li><a href="mentions-legales.html">Mentions légales</a></li></ul></div>
+      <div class="ftr-col"><strong>Groupe Solyance</strong><ul><li><a href="https://groupe-solyance.com/">Groupe Solyance</a></li><li><a href="https://solyance-energie.com/">Solyance Énergie</a></li><li><a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a></li><li><a href="https://solyance-developpement.com/">Solyance Développement</a></li></ul></div>
+    </div>
+  </div>
+  <div class="ftr-bottom"><span>&copy; 2025 EnR Collectives — Tous droits réservés</span><a href="mentions-legales.html">Mentions légales &amp; politique de confidentialité</a></div>
+</div></footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+const hdr=document.getElementById('hdr');
+const scrollTopBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',window.scrollY>20);scrollTopBtn.classList.toggle('show',window.scrollY>500)},{passive:true});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+function toggleMob(){const b=document.getElementById('burger');const m=document.getElementById('mobMenu');b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+function closeMob(){document.getElementById('burger').classList.remove('open');document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow=''}
+
+function pickT(btn){
+  document.querySelectorAll('#tsel .tbtn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');const v=btn.dataset.v;
+  document.getElementById('type-v').value=v;
+  const fg=document.getElementById('fg-ent');
+  if(v==='Entreprise'||v==='Collectivité'){fg.classList.add('show')}else{fg.classList.remove('show')}
+}
+function goPhase2(){
+  let valid=true;
+  [{id:'nom',eid:'nom-e'},{id:'email',eid:'email-e',type:'email'},{id:'tel',eid:'tel-e'},{id:'adresse',eid:'adresse-e'}].forEach(f=>{
+    const el=document.getElementById(f.id);const err=document.getElementById(f.eid);
+    let ok=el.value.trim().length>0;
+    if(f.type==='email')ok=ok&&/^[^@]+@[^@]+\.[^@]+$/.test(el.value);
+    el.classList.toggle('err',!ok);err.classList.toggle('show',!ok);if(!ok)valid=false;
+  });
+  const tv=document.getElementById('type-v').value;
+  if(tv==='Entreprise'||tv==='Collectivité'){const ent=document.getElementById('entreprise');const ee=document.getElementById('ent-e');const ok=ent.value.trim().length>0;ent.classList.toggle('err',!ok);ee.classList.toggle('show',!ok);if(!ok)valid=false;}
+  if(valid){
+    document.getElementById('phase1').classList.remove('active');document.getElementById('phase2').classList.add('active');
+    document.getElementById('fs1').classList.remove('active');document.getElementById('fs1').classList.add('done');
+    document.getElementById('fsl').classList.add('done');document.getElementById('fs2').classList.add('active');
+    window.scrollTo({top:document.getElementById('eligibilite').offsetTop-100,behavior:'smooth'});
+  }
+}
+function goPhase1(){
+  document.getElementById('phase2').classList.remove('active');document.getElementById('phase1').classList.add('active');
+  document.getElementById('fs2').classList.remove('active');document.getElementById('fsl').classList.remove('done');
+  document.getElementById('fs1').classList.remove('done');document.getElementById('fs1').classList.add('active');
+}
+/* ── Envoi formulaire ── */
+var FORM_ENDPOINT='REMPLACER_PAR_VOTRE_URL';
+document.getElementById('dform').addEventListener('submit',function(e){
+  e.preventDefault();
+  var consent=document.getElementById('consent'),ce=document.getElementById('consent-e');
+  if(!consent.checked){ce.classList.add('show');return}else{ce.classList.remove('show')}
+  var btn=e.target.querySelector('button[type="submit"]');
+  btn.disabled=true;btn.textContent='Envoi en cours\u2026';
+  var d={nom:document.getElementById('nom').value,email:document.getElementById('email').value,tel:document.getElementById('tel').value,adresse:document.getElementById('adresse').value,type_acteur:document.getElementById('type-v').value,entreprise:document.getElementById('entreprise').value||'',ville:document.querySelector('[name="ville"]').value,conso:document.getElementById('conso').value,kwh:document.getElementById('kwh').value,logement:document.getElementById('logement').value,surface:document.getElementById('surface').value,message:document.getElementById('msg').value,interet_acc:document.getElementById('int-acc').checked?'Oui':'Non',interet_production:document.getElementById('int-prod').checked?'Oui':'Non'};
+  fetch(FORM_ENDPOINT,{method:'POST',body:new URLSearchParams(d),mode:'no-cors'}).then(function(){
+    document.getElementById('fc').style.display='none';document.getElementById('fok').classList.add('show');
+    window.scrollTo({top:document.getElementById('eligibilite').offsetTop-100,behavior:'smooth'});
+  }).catch(function(){
+    btn.disabled=false;btn.textContent='V\u00e9rifier mon \u00e9ligibilit\u00e9';
+    alert('Erreur réseau. Veuillez réessayer ou nous contacter par email.');
+  });
+});
+</script>
+</body>
+</html>

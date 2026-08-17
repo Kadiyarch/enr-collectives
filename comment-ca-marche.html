@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Comment ça marche — EnR Collectives | Autoconsommation collective expliquée</title>
+<meta name="description" content="Comprendre l'autoconsommation collective : fonctionnement, cadre légal, avantages et étapes pour rejoindre un projet d'énergie solaire partagée.">
+<link rel="canonical" href="https://enr-collectives.fr/comment-ca-marche.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f8a63'/%3E%3Ctext x='16' y='22' font-family='serif' font-weight='700' font-size='16' fill='white' text-anchor='middle'%3EEnR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#14291f;--ink2:#1f3d2e;--grey:#596e62;--grey-lt:#8a9c91;--grey-xlt:#b5c3bb;
+  --line:#dbe8e0;--bg:#f5faf7;--bg2:#edf4ef;--card:#fff;
+  --green:#0f8a63;--green-d:#0a6b4d;--green-dd:#07503a;--green-lt:#15b07e;
+  --green-glass:rgba(15,138,99,.07);--green-glow:rgba(15,138,99,.12);
+  --sun:#e8952e;--sun-lt:#f2a63b;--sun-glass:rgba(232,149,46,.08);
+  --r:16px;--r-lg:24px;--r-pill:50px;
+  --sh-xs:0 1px 3px rgba(20,41,31,.04);--sh-sm:0 2px 10px rgba(20,41,31,.06);
+  --sh-md:0 8px 32px rgba(20,41,31,.08);--sh-lg:0 16px 56px rgba(20,41,31,.1);
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+
+/* Header */
+.hdr{position:sticky;top:0;z-index:100;background:rgba(245,250,247,.88);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+.hdr.scrolled{border-bottom-color:var(--line);box-shadow:var(--sh-xs)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo-wrap{display:flex;flex-direction:column;gap:1px}
+.logo{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.logo b{color:var(--sun);font-weight:700}
+.logo-tag{font-size:.68rem;color:var(--grey-lt);font-weight:500;letter-spacing:.03em;text-transform:uppercase}
+.hdr-nav{display:flex;align-items:center;gap:28px}
+.hdr-link{font-size:.88rem;font-weight:500;color:var(--grey);transition:color .2s}
+.hdr-link:hover{color:var(--green)}
+.hdr-link.active{color:var(--green);font-weight:600}
+.hdr-cta{background:var(--green);color:#fff;padding:10px 24px;border-radius:var(--r-pill);font-size:.85rem;font-weight:600;transition:all .25s var(--ease);white-space:nowrap}
+.hdr-cta:hover{background:var(--green-d);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+.nav-groupe{position:relative}
+.nav-groupe-btn{font-size:.85rem;font-weight:500;color:var(--grey);display:flex;align-items:center;gap:5px;padding:0;transition:color .2s}
+.nav-groupe-btn:hover{color:var(--ink)}
+.dd-arrow{display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid currentColor;transition:transform .2s}
+.nav-groupe:hover .dd-arrow{transform:rotate(180deg)}
+.nav-groupe-dd{position:absolute;top:calc(100% + 14px);right:0;background:rgba(7,22,40,.98);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:6px 0;min-width:240px;opacity:0;visibility:hidden;transform:translateY(-5px);transition:all .18s;z-index:200;box-shadow:0 12px 40px rgba(0,0,0,.4);backdrop-filter:blur(16px)}
+.nav-groupe:hover .nav-groupe-dd{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-groupe-dd a{display:block;padding:9px 16px;font-size:13px;font-weight:500;color:rgba(255,255,255,.6);transition:color .15s,background .15s}
+.nav-groupe-dd a:hover{color:var(--green-lt);background:rgba(15,138,99,.1)}
+.nav-groupe-dd a:first-child{font-weight:700;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px;padding-bottom:12px}
+
+/* Page header */
+.page-hero{padding:clamp(48px,8vw,80px) 0 clamp(32px,5vw,48px);text-align:center}
+.page-hero h1{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);color:var(--ink);letter-spacing:-.03em;margin-bottom:16px}
+.page-hero p{font-size:clamp(.92rem,1.1vw,1.05rem);color:var(--grey);max-width:620px;margin:0 auto;line-height:1.7}
+
+/* Content sections */
+.sec{padding:clamp(48px,7vw,80px) 0}
+.sec-alt{background:var(--bg2)}
+.sec-head{margin-bottom:clamp(28px,4vw,48px)}
+.sec-head h2{font-family:var(--serif);font-size:clamp(1.4rem,2.5vw,2rem);color:var(--ink);letter-spacing:-.02em;margin-bottom:10px}
+.sec-head p{font-size:.95rem;color:var(--grey);max-width:560px;line-height:1.65}
+.sec-head.center{text-align:center}
+.sec-head.center p{margin:0 auto}
+
+/* Principle grid */
+.principle-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center}
+.principle-img{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md)}
+.principle-img img{width:100%;height:360px;object-fit:cover}
+.principle-content h2{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--ink);margin-bottom:18px;letter-spacing:-.02em}
+.principle-content p{font-size:.93rem;color:var(--grey);line-height:1.75;margin-bottom:14px}
+
+/* Numbered steps */
+.detail-steps{display:flex;flex-direction:column;gap:0;position:relative;max-width:780px;margin:0 auto}
+.detail-steps::before{content:'';position:absolute;left:27px;top:36px;bottom:36px;width:2px;background:linear-gradient(180deg,var(--green),var(--line) 50%,var(--green))}
+.d-step{display:flex;gap:24px;padding:24px 0;position:relative}
+.d-step-n{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:1.1rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(15,138,99,.2);z-index:1}
+.d-step-body h3{font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.d-step-body p{font-size:.9rem;color:var(--grey);line-height:1.7}
+
+/* Info boxes */
+.info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.info-box{background:var(--card);border-radius:var(--r-lg);padding:28px 24px;border:1px solid var(--line)}
+.info-box h3{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.info-box p{font-size:.88rem;color:var(--grey);line-height:1.65}
+.info-box-highlight{border-left:3px solid var(--green);background:var(--green-glass)}
+
+/* CTA band */
+.cta-band{padding:clamp(48px,8vw,80px) 0;text-align:center}
+.cta-band h2{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2rem);color:var(--ink);margin-bottom:12px}
+.cta-band p{font-size:1rem;color:var(--grey);margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
+.cta-main{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;padding:15px 32px;border-radius:var(--r-pill);font-size:.95rem;font-weight:700;transition:all .25s var(--ease);box-shadow:0 4px 16px rgba(15,138,99,.18)}
+.cta-main:hover{background:var(--green-d);transform:translateY(-2px);box-shadow:0 8px 28px rgba(15,138,99,.25)}
+.cta-main svg{width:18px;height:18px}
+
+/* Footer */
+.ftr{border-top:1px solid var(--line);padding:36px 0 48px}
+.ftr-in{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+.ftr-txt{max-width:480px;font-size:.88rem;color:var(--grey);line-height:1.65}
+.ftr-txt strong{color:var(--ink);font-weight:700}
+.ftr-by{margin-top:16px;font-size:.75rem;color:var(--grey-lt)}
+.ftr-links{display:flex;gap:48px}
+.ftr-col strong{font-size:.85rem;color:var(--ink);display:block;margin-bottom:10px}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ftr-col li a{font-size:.82rem;color:var(--grey);transition:color .2s}
+.ftr-col li a:hover{color:var(--green)}
+.ftr-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:32px;padding-top:24px;border-top:1px solid var(--line);font-size:.75rem;color:var(--grey-lt)}
+.ftr-bottom a{color:var(--grey-lt);transition:color .2s}
+.ftr-bottom a:hover{color:var(--green)}
+
+/* Hamburger */
+.hdr-burger{display:none;width:36px;height:36px;align-items:center;justify-content:center;border-radius:8px;transition:background .2s;flex-shrink:0;cursor:pointer;border:none;background:none}
+.hdr-burger:hover{background:var(--green-glass)}
+.hdr-burger span,.hdr-burger span::before,.hdr-burger span::after{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;transition:all .3s var(--ease);position:relative}
+.hdr-burger span::before,.hdr-burger span::after{content:'';position:absolute;left:0;width:20px}
+.hdr-burger span::before{top:-6px}.hdr-burger span::after{top:6px}
+.hdr-burger.open span{background:transparent}
+.hdr-burger.open span::before{top:0;transform:rotate(45deg)}
+.hdr-burger.open span::after{top:0;transform:rotate(-45deg)}
+.mob-menu{position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(245,250,247,.98);backdrop-filter:blur(20px);z-index:99;display:flex;flex-direction:column;padding:24px 28px 40px;transform:translateX(100%);transition:transform .35s var(--ease);overflow-y:auto}
+.mob-menu.open{transform:translateX(0)}
+.mob-menu a{display:block;padding:14px 0;font-size:1.05rem;font-weight:600;color:var(--ink);border-bottom:1px solid var(--line);transition:color .2s}
+.mob-menu a:hover{color:var(--green)}
+.mob-menu .mob-cta{display:block;margin-top:24px;padding:16px;background:var(--green);color:#fff;border-radius:var(--r);text-align:center;font-size:1rem;font-weight:700;border-bottom:none;transition:background .2s}
+.mob-menu .mob-cta:hover{background:var(--green-d)}
+.mob-menu .mob-groupe{padding:14px 0;border-bottom:1px solid var(--line)}
+.mob-menu .mob-groupe strong{font-size:.9rem;color:var(--grey-lt);font-weight:600;display:block;margin-bottom:8px}
+.mob-menu .mob-groupe a{padding:8px 0;font-size:.9rem;font-weight:500;color:var(--grey);border-bottom:none}
+.scroll-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);opacity:0;visibility:hidden;transform:translateY(12px);transition:all .3s var(--ease);z-index:90;cursor:pointer;border:none}
+.scroll-top.show{opacity:1;visibility:visible;transform:none}
+.scroll-top:hover{background:var(--green-d);transform:translateY(-2px)}
+.scroll-top svg{width:20px;height:20px}
+
+@media(max-width:900px){
+  .principle-grid{grid-template-columns:1fr}
+  .principle-img{order:-1}
+  .principle-img img{height:240px}
+  .info-grid{grid-template-columns:1fr}
+  .hdr-link,.nav-groupe{display:none}
+  .hdr-burger{display:flex}
+  .ftr-in{flex-direction:column;align-items:center;text-align:center}
+  .ftr-links{gap:32px}
+}
+@media(max-width:600px){
+  .hdr-in{height:56px}
+  .logo{font-size:1.2rem}.logo-tag{font-size:.6rem}
+  .hdr-cta{padding:8px 16px;font-size:.78rem}
+  .detail-steps::before{left:23px}
+  .d-step-n{width:48px;height:48px;font-size:1rem}
+  .ftr-links{flex-direction:column;gap:24px;align-items:center}
+  .ftr-bottom{flex-direction:column;gap:8px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <div class="hdr-in">
+      <a href="index.html" class="logo-wrap">
+        <div class="logo"><b>EnR</b> Collectives</div>
+        <div class="logo-tag">Énergie solaire de proximité</div>
+      </a>
+      <div class="hdr-nav">
+        <a href="comment-ca-marche.html" class="hdr-link active">Comment ça marche</a>
+        <a href="index.html#villes" class="hdr-link">Nos villes</a>
+        <div class="nav-groupe">
+          <button class="nav-groupe-btn">Groupe Solyance <span class="dd-arrow"></span></button>
+          <div class="nav-groupe-dd">
+            <a href="https://groupe-solyance.com/">Groupe Solyance</a>
+            <a href="https://solyance-energie.com/">Solyance Énergie</a>
+            <a href="https://solyance-gtb.com/">Solyance GTB</a>
+            <a href="https://solyance-lux.com/">Solyance LUX</a>
+            <a href="https://solyance-powergrid.com/">Solyance PowerGrid</a>
+            <a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a>
+            <a href="index.html">EnR Collectives</a>
+            <a href="https://solyance-developpement.com/">Solyance Développement</a>
+          </div>
+        </div>
+        <a class="hdr-cta" href="index.html#villes">Découvrir les projets</a>
+        <button class="hdr-burger" id="burger" onclick="toggleMob()" aria-label="Menu"><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mob-menu" id="mobMenu">
+  <a href="index.html">Accueil</a>
+  <a href="comment-ca-marche.html">Comment ça marche</a>
+  <a href="index.html#villes">Nos villes</a>
+  <div class="mob-groupe">
+    <strong>Groupe Solyance</strong>
+    <a href="https://groupe-solyance.com/">Groupe Solyance</a>
+    <a href="https://solyance-energie.com/">Solyance Énergie</a>
+    <a href="https://solyance-gtb.com/">Solyance GTB</a>
+    <a href="https://solyance-lux.com/">Solyance LUX</a>
+    <a href="https://solyance-powergrid.com/">Solyance PowerGrid</a>
+    <a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a>
+    <a href="https://solyance-developpement.com/">Solyance Développement</a>
+  </div>
+  <a href="index.html#villes" class="mob-cta">Découvrir les projets</a>
+</div>
+
+<!-- Page Hero -->
+<section class="page-hero rv">
+  <div class="wrap">
+    <div style="font-size:.82rem;color:var(--grey-lt);margin-bottom:16px;display:flex;align-items:center;gap:6px"><a href="index.html" style="color:var(--green);font-weight:500">EnR Collectives</a> <span>›</span> Comment ça marche</div>
+    <h1>Comment fonctionne l'autoconsommation collective ?</h1>
+    <p>Un mécanisme simple, encadré par la loi, qui permet à tous les acteurs d'un territoire de partager une énergie solaire locale et compétitive.</p>
+  </div>
+</section>
+
+<!-- Le principe -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="principle-grid">
+      <div class="principle-img rv">
+        <img src="photo-split.webp" alt="Installation solaire en toiture" loading="lazy">
+      </div>
+      <div class="principle-content rv rv-d1">
+        <h2>Le principe</h2>
+        <p>Un producteur installe des panneaux solaires sur un site adapté — toiture d'entrepôt, parking, terrain agricole, ombrière. L'électricité produite est injectée sur le réseau basse tension d'Enedis.</p>
+        <p>Les participants situés dans un rayon de 2 km consomment une part de cette énergie locale. Enedis mesure la production et la consommation de chaque point de livraison en temps réel, et applique les clés de répartition définies dans la convention.</p>
+        <p>Résultat : chaque participant voit apparaître sur sa facture une ligne d'énergie locale à un tarif négocié, plus compétitif que le tarif réseau. L'économie est immédiate et mesurable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Le parcours détaillé -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <h2>Votre parcours, étape par étape</h2>
+      <p>De la découverte du projet à votre première facture allégée.</p>
+    </div>
+    <div class="detail-steps">
+      <div class="d-step rv rv-d1">
+        <div class="d-step-n">1</div>
+        <div class="d-step-body">
+          <h3>Découverte du projet dans votre ville</h3>
+          <p>Vous consultez la page de votre commune sur notre site. Vous y trouvez les données locales : ensoleillement, économies estimées, état d'avancement du projet. Si le projet correspond à votre situation, vous remplissez le formulaire d'intérêt.</p>
+        </div>
+      </div>
+      <div class="d-step rv rv-d2">
+        <div class="d-step-n">2</div>
+        <div class="d-step-body">
+          <h3>Premier rendez-vous avec un conseiller</h3>
+          <p>Un conseiller EnR Collectives vous contacte pour comprendre votre profil de consommation et votre situation géographique. Ce premier échange est offert et permet de vérifier votre éligibilité au projet de votre secteur.</p>
+        </div>
+      </div>
+      <div class="d-step rv rv-d3">
+        <div class="d-step-n">3</div>
+        <div class="d-step-body">
+          <h3>Analyse de votre consommation</h3>
+          <p>Avec votre accord, nous accédons à votre courbe de charge Enedis pour analyser votre profil horaire de consommation. Cette analyse permet de déterminer la part d'énergie locale que vous pourriez recevoir et l'économie associée.</p>
+        </div>
+      </div>
+      <div class="d-step rv rv-d1">
+        <div class="d-step-n">4</div>
+        <div class="d-step-body">
+          <h3>Structuration du projet</h3>
+          <p>Nous coordonnons l'ensemble du projet : sélection du site de production, choix des partenaires installateurs, rédaction de la convention d'autoconsommation collective, dépôt du dossier auprès d'Enedis. Vous êtes informé à chaque étape.</p>
+        </div>
+      </div>
+      <div class="d-step rv rv-d2">
+        <div class="d-step-n">5</div>
+        <div class="d-step-body">
+          <h3>Mise en service et économies</h3>
+          <p>L'installation est mise en service par les partenaires d'exécution. Enedis active la convention de partage. L'énergie locale apparaît sur votre facture, à un tarif plus compétitif. Vos économies commencent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cadre légal et technique -->
+<section class="sec sec-alt">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <h2>Cadre légal et technique</h2>
+      <p>L'autoconsommation collective repose sur un dispositif réglementaire précis et des mécanismes éprouvés.</p>
+    </div>
+    <div class="info-grid">
+      <div class="info-box rv rv-d1">
+        <h3>Base légale</h3>
+        <p>Articles L315-2 et suivants du Code de l'énergie. Le périmètre a été étendu à 2 km par la loi climat et résilience du 22 août 2021. Le dispositif est complété par l'arrêté du 21 novembre 2019 sur les conditions de mise en œuvre.</p>
+      </div>
+      <div class="info-box rv rv-d2">
+        <h3>Rôle d'Enedis</h3>
+        <p>Enedis gère le réseau de distribution, mesure les flux de production et de consommation via les compteurs Linky, et applique les clés de répartition. Les données sont transmises aux participants et au fournisseur.</p>
+      </div>
+      <div class="info-box rv rv-d3">
+        <h3>Convention d'ACC</h3>
+        <p>Tous les participants sont liés par une convention d'autoconsommation collective déposée auprès d'Enedis. Elle définit les clés de répartition, la durée, les conditions d'entrée et de sortie.</p>
+      </div>
+      <div class="info-box rv rv-d1">
+        <h3>Avantage fiscal</h3>
+        <p>L'énergie autoconsommée collectivement est exonérée de l'accise sur l'électricité (ancienne TICFE/CSPE). Cette exonération contribue directement à la compétitivité du tarif local par rapport au tarif réseau.</p>
+      </div>
+      <div class="info-box info-box-highlight rv rv-d2">
+        <h3>Périmètre géographique</h3>
+        <p>Tous les participants (producteur et consommateurs) doivent être raccordés au réseau basse tension dans un rayon de 2 km. Ce périmètre est vérifié par Enedis lors du dépôt de la convention.</p>
+      </div>
+      <div class="info-box rv rv-d3">
+        <h3>Continuité d'approvisionnement</h3>
+        <p>Le raccordement au réseau Enedis est maintenu. Quand la production solaire est insuffisante (nuit, temps couvert), votre consommation est complétée par le réseau classique. Aucune interruption possible.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notre rôle -->
+<section class="sec">
+  <div class="wrap">
+    <div class="principle-grid">
+      <div class="principle-content rv">
+        <h2>Le rôle d'EnR Collectives</h2>
+        <p>Nous structurons et coordonnons les projets d'autoconsommation collective, de la prospection territoriale à la mise en service. Nous sélectionnons les sites de production, identifions les participants, choisissons les partenaires d'exécution et gérons l'ensemble du montage technique et administratif.</p>
+        <p>Nous assurons le suivi de chantier, la coordination avec Enedis et l'accompagnement des participants tout au long du projet. L'installation est réalisée par des partenaires qualifiés, sélectionnés pour chaque opération.</p>
+        <p>EnR Collectives est un service de <a href="https://solyance-developpement.com/" style="color:var(--green);font-weight:600">Solyance Développement</a>, spécialisé dans la structuration de projets d'énergie renouvelable en Bourgogne-Franche-Comté et Auvergne-Rhône-Alpes.</p>
+      </div>
+      <div class="principle-img rv rv-d1">
+        <img src="photo-aerial.webp" alt="Vue aérienne d'un projet solaire" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band sec-alt rv">
+  <div class="wrap">
+    <h2>Découvrez le projet de votre ville</h2>
+    <p>Sélectionnez votre ville pour vérifier votre éligibilité à l'autoconsommation collective.</p>
+    <a class="cta-main" href="index.html#villes">
+      Découvrir les projets
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <div class="ftr-txt">
+        <strong>EnR Collectives</strong> structure des projets d'autoconsommation collective solaire pour les particuliers, entreprises et collectivités de Bourgogne-Franche-Comté et Auvergne-Rhône-Alpes.
+        <div class="ftr-by">Un service proposé par <a href="https://solyance-developpement.com/" style="color:var(--green);font-weight:600">Solyance Développement</a></div>
+      </div>
+      <div class="ftr-links">
+        <div class="ftr-col">
+          <strong>Site</strong>
+          <ul>
+            <li><a href="comment-ca-marche.html">Comment ça marche</a></li>
+            <li><a href="index.html#villes">Nos villes</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+        <div class="ftr-col">
+          <strong>Groupe Solyance</strong>
+          <ul>
+            <li><a href="https://groupe-solyance.com/">Groupe Solyance</a></li>
+            <li><a href="https://solyance-energie.com/">Solyance Énergie</a></li>
+            <li><a href="https://solyance-photovoltaique.com/">Solyance Photovoltaïque</a></li>
+            <li><a href="https://solyance-developpement.com/">Solyance Développement</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>&copy; 2025 EnR Collectives — Tous droits réservés</span>
+      <a href="mentions-legales.html">Mentions légales &amp; politique de confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+const hdr=document.getElementById('hdr');
+const scrollTopBtn=document.getElementById('scrollTop');
+window.addEventListener('scroll',()=>{
+  hdr.classList.toggle('scrolled',window.scrollY>20);
+  scrollTopBtn.classList.toggle('show',window.scrollY>500);
+},{passive:true});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+function toggleMob(){const b=document.getElementById('burger');const m=document.getElementById('mobMenu');b.classList.toggle('open');m.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':''}
+function closeMob(){document.getElementById('burger').classList.remove('open');document.getElementById('mobMenu').classList.remove('open');document.body.style.overflow=''}
+</script>
+</body>
+</html>
